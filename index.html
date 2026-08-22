@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MegaNet Computersysteme GmbH — IT-Systemhaus Hamburg</title>
+<meta name="description" content="Ihr zuverlässiger IT-Partner in Hamburg. Netzwerke, Server, Backup, VoIP, Dental-IT und DSGVO-Beratung. Seit 1992.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --ink:#161b29;
+  --ink-2:#525d73;
+  --ink-3:#8a93a4;
+  --navy:#0c1322;
+  --bundesblau:#003580;
+  --bundesblau-h:#004ab0;
+  --parchment:#f3f1ea;
+  --parchment-warm:#ede9e0;
+  --doc-line:#bfb8aa;
+  --doc-line-light:#dbd5c9;
+  --seal-red:#8b2020;
+  --dental:#0d5c3a;
+  --dental-bg:#eef5f0;
+  --dental-line:#b3d1c2;
+  --white:#fff;
+  --font-display:'Barlow Condensed','Arial Narrow',sans-serif;
+  --font-body:'Barlow',system-ui,-apple-system,sans-serif;
+}
+
+html{font-size:16px;scroll-behavior:smooth;background:var(--parchment);color:var(--ink)}
+body{font-family:var(--font-body);font-size:1rem;line-height:1.6;background:var(--parchment)}
+
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--parchment-warm)}
+::-webkit-scrollbar-thumb{background:var(--bundesblau);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--navy)}
+::selection{background:var(--bundesblau);color:var(--white)}
+:focus-visible{outline:2px solid var(--bundesblau);outline-offset:3px}
+
+a{color:var(--bundesblau);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+
+.container{max-width:1100px;margin:0 auto;padding:0 2rem}
+
+/* === NAV === */
+nav.mn-nav{
+  position:sticky;top:0;z-index:100;
+  background:var(--navy);
+  border-bottom:1px solid rgba(0,53,128,0.6);
+}
+.nav-inner{
+  display:flex;align-items:center;gap:2rem;height:56px;
+  max-width:1100px;margin:0 auto;padding:0 2rem;
+}
+.nav-logo{
+  display:flex;align-items:center;gap:.85rem;
+  text-decoration:none;flex-shrink:0;
+}
+.nav-logo:hover{text-decoration:none}
+.nav-logo-name{
+  font-family:var(--font-display);font-size:1.05rem;
+  font-weight:700;color:var(--white);letter-spacing:.06em;text-transform:uppercase;
+}
+.nav-links{
+  display:flex;gap:1.75rem;list-style:none;
+  margin-left:auto;align-items:center;
+}
+.nav-links a{
+  font-family:var(--font-display);font-size:.75rem;
+  font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);transition:color .15s;text-decoration:none;
+}
+.nav-links a:hover{color:var(--white);text-decoration:none}
+.nav-tel{
+  font-family:var(--font-display);font-size:.78rem;font-weight:600;
+  letter-spacing:.06em;color:rgba(255,255,255,.85);
+  border:1px solid rgba(255,255,255,.2);padding:.28rem .75rem;
+  text-decoration:none;transition:background .15s,border-color .15s;
+}
+.nav-tel:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.4);text-decoration:none;color:var(--white)}
+@media(max-width:640px){.nav-links{display:none}}
+
+/* === HERO === */
+.hero{
+  background:var(--navy);position:relative;overflow:hidden;
+  padding:5rem 0 4rem;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='20'%3E%3Cpath d='M0,10 C10,0 20,0 40,10 C60,20 70,20 80,10' fill='none' stroke='rgba(0,80,180,0.1)' stroke-width='.75'/%3E%3Cpath d='M0,10 C10,20 20,20 40,10 C60,0 70,0 80,10' fill='none' stroke='rgba(0,80,180,0.07)' stroke-width='.5'/%3E%3C/svg%3E");
+}
+.hero-inner{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center;
+}
+.hero-headline{
+  font-family:var(--font-display);
+  font-size:clamp(2.6rem,6vw,4.5rem);
+  font-weight:700;line-height:1.05;letter-spacing:-.02em;
+  color:var(--white);margin-bottom:1.5rem;
+}
+.hero-sub{
+  font-size:1.05rem;line-height:1.65;
+  color:rgba(255,255,255,.6);max-width:52ch;margin-bottom:2.5rem;
+}
+.hero-actions{display:flex;gap:1.25rem;align-items:center;flex-wrap:wrap}
+.btn-primary{
+  font-family:var(--font-display);font-size:.85rem;
+  font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--white);background:var(--bundesblau);
+  padding:.7rem 1.5rem;text-decoration:none;
+  transition:background .15s;
+}
+.btn-primary:hover{background:var(--bundesblau-h);text-decoration:none}
+.btn-text{
+  font-family:var(--font-display);font-size:.85rem;
+  font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;
+}
+.btn-text:hover{color:var(--white);text-decoration:none}
+.hero-proof{
+  border-top:1px solid rgba(255,255,255,.1);
+  margin-top:3.5rem;padding-top:1.75rem;
+  display:flex;gap:2.5rem;flex-wrap:wrap;
+}
+.proof-item{display:flex;align-items:baseline;gap:.4rem}
+.proof-num{
+  font-family:var(--font-display);font-size:1.55rem;
+  font-weight:700;color:var(--white);line-height:1;
+}
+.proof-label{
+  font-family:var(--font-display);font-size:.72rem;
+  font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.38);
+}
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-seal-wrap{display:none}
+}
+
+/* === SHARED SECTION === */
+section{padding:5rem 0}
+.section-title{
+  font-family:var(--font-display);
+  font-size:clamp(1.8rem,4vw,2.75rem);
+  font-weight:700;line-height:1.1;letter-spacing:-.02em;
+  color:var(--ink);margin-bottom:3rem;
+}
+
+/* === LEISTUNGEN === */
+.leistungen{
+  background:var(--white);
+  border-top:1px solid var(--doc-line);
+  border-bottom:1px solid var(--doc-line);
+}
+.leistungen-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+@media(max-width:640px){.leistungen-grid{grid-template-columns:1fr}}
+.svc{
+  padding:1.75rem 0;border-bottom:1px solid var(--doc-line-light);
+  display:grid;grid-template-columns:46px 1fr;gap:1rem;
+}
+.leistungen-grid .svc:nth-child(odd){border-right:1px solid var(--doc-line-light);padding-right:2rem}
+.leistungen-grid .svc:nth-child(even){padding-left:2rem}
+.leistungen-grid .svc:nth-last-child(-n+2){border-bottom:none}
+.svc-code{
+  font-family:var(--font-display);font-size:.62rem;
+  font-weight:700;letter-spacing:.18em;color:var(--ink-3);
+  padding-top:.2rem;text-transform:uppercase;
+}
+.svc-name{
+  font-family:var(--font-display);font-size:.95rem;
+  font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--ink);margin-bottom:.35rem;
+}
+.svc-desc{font-size:.875rem;line-height:1.55;color:var(--ink-2)}
+
+/* === KENNDATEN === */
+.kenndaten{background:var(--parchment)}
+.kenndaten-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border:1px solid var(--doc-line);
+}
+@media(max-width:640px){.kenndaten-grid{grid-template-columns:1fr}}
+.kd-item{padding:2.5rem 2rem;border-right:1px solid var(--doc-line);background:var(--white)}
+.kd-item:last-child{border-right:none}
+@media(max-width:640px){.kd-item{border-right:none;border-bottom:1px solid var(--doc-line)}}
+.kd-label{
+  font-family:var(--font-display);font-size:.62rem;
+  font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:.75rem;
+}
+.kd-val{
+  font-family:var(--font-display);font-size:4rem;
+  font-weight:700;line-height:1;color:var(--bundesblau);
+  display:block;letter-spacing:-.03em;
+}
+.kd-val sup{font-size:2rem;vertical-align:super;line-height:0}
+.kd-unit{
+  font-family:var(--font-display);font-size:.82rem;
+  font-weight:600;letter-spacing:.06em;color:var(--ink-2);
+  display:block;margin-top:.35rem;text-transform:uppercase;
+}
+.about-text{
+  margin-top:2.5rem;border-top:1px solid var(--doc-line);
+  padding-top:2rem;max-width:65ch;
+  font-size:.925rem;line-height:1.7;color:var(--ink-2);
+}
+
+/* === DENTAL === */
+.dental-it{
+  background:var(--dental-bg);
+  border-top:2px solid var(--dental);
+  border-bottom:1px solid var(--dental-line);
+}
+.dental-inner{
+  display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:start;
+}
+@media(max-width:768px){
+  .dental-inner{grid-template-columns:1fr}
+  .dental-seal-wrap{display:flex;justify-content:center}
+}
+.dental-title{
+  font-family:var(--font-display);
+  font-size:clamp(1.8rem,4vw,2.5rem);
+  font-weight:700;color:var(--dental);
+  letter-spacing:-.02em;margin-bottom:1rem;line-height:1.1;
+}
+.dental-sub{
+  font-size:1rem;color:var(--dental);opacity:.75;
+  margin-bottom:2rem;max-width:55ch;
+}
+.dental-list{
+  list-style:none;
+  display:grid;grid-template-columns:1fr 1fr;gap:.35rem 2rem;
+  margin-bottom:2rem;
+}
+@media(max-width:480px){.dental-list{grid-template-columns:1fr}}
+.dental-list li{
+  font-size:.875rem;color:var(--dental);
+  display:flex;align-items:baseline;gap:.5rem;
+}
+.dental-list li::before{
+  content:'';display:inline-block;
+  width:4px;height:4px;border-radius:50%;
+  background:var(--dental);opacity:.45;flex-shrink:0;
+  position:relative;top:-.05rem;
+}
+.dental-ref{
+  display:inline-block;
+  border:1px solid var(--dental-line);
+  background:rgba(13,92,58,.05);
+  padding:1rem 1.5rem;font-size:.875rem;color:var(--dental);
+  max-width:480px;
+}
+.dental-ref p{font-style:italic;line-height:1.65}
+.dental-ref cite{
+  display:block;font-style:normal;font-weight:600;
+  font-size:.78rem;margin-top:.5rem;opacity:.65;
+}
+
+/* THE ONE AUTHORED MOMENT */
+.dental-seal{
+  opacity:0;
+  transform:scale(1.4) rotate(-10deg);
+  will-change:transform,opacity;
+}
+@keyframes stamp-in{
+  0%{opacity:0;transform:scale(1.4) rotate(-10deg)}
+  65%{opacity:1;transform:scale(.97) rotate(.4deg)}
+  100%{opacity:1;transform:scale(1) rotate(0deg)}
+}
+.dental-seal.is-stamped{
+  animation:stamp-in .55s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+/* === PHILOSOPHIE / REFERENZ === */
+.philosophie{
+  background:var(--white);
+  border-top:1px solid var(--doc-line);
+}
+.phil-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+@media(max-width:768px){.phil-inner{grid-template-columns:1fr}}
+.phil-label{
+  font-family:var(--font-display);font-size:.62rem;
+  font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:1.25rem;
+}
+.phil-values{list-style:none}
+.phil-values li{
+  padding:.85rem 0;border-bottom:1px solid var(--doc-line-light);
+  display:flex;justify-content:space-between;align-items:baseline;
+}
+.phil-values li:last-child{border-bottom:none}
+.phil-vname{
+  font-family:var(--font-display);font-size:1.15rem;
+  font-weight:700;letter-spacing:.02em;color:var(--ink);text-transform:uppercase;
+}
+.phil-vdesc{font-size:.8rem;color:var(--ink-2);text-align:right}
+.ref-block{border-left:1px solid var(--bundesblau);padding-left:1.5rem}
+.ref-text{
+  font-size:1.05rem;line-height:1.7;color:var(--ink);
+  font-style:italic;margin-bottom:1rem;
+}
+.ref-source{
+  font-family:var(--font-display);font-size:.72rem;
+  font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-2);
+}
+
+/* === STELLENANZEIGE === */
+.stellenanzeige{
+  background:var(--parchment);
+  border-top:1px solid var(--doc-line);
+}
+.stellen-card{
+  border:1px solid var(--doc-line);background:var(--white);
+  padding:2.5rem;max-width:660px;
+}
+.stellen-title{
+  font-family:var(--font-display);font-size:1.5rem;
+  font-weight:700;color:var(--ink);letter-spacing:-.01em;
+  margin-bottom:.4rem;text-transform:uppercase;
+}
+.stellen-meta{font-size:.875rem;color:var(--ink-2);margin-bottom:1.5rem}
+.stellen-text{
+  font-size:.9rem;color:var(--ink-2);line-height:1.65;
+  max-width:58ch;margin-bottom:1.75rem;
+}
+.stellen-cta{
+  font-family:var(--font-display);font-size:.82rem;
+  font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--bundesblau);border:1px solid var(--bundesblau);
+  padding:.55rem 1.2rem;display:inline-block;
+  transition:background .15s,color .15s;text-decoration:none;
+}
+.stellen-cta:hover{background:var(--bundesblau);color:var(--white);text-decoration:none}
+
+/* === KONTAKT === */
+.kontakt{
+  background:var(--navy);
+  border-top:2px solid var(--bundesblau);
+}
+.kontakt-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+@media(max-width:640px){.kontakt-inner{grid-template-columns:1fr}}
+.k-label{
+  font-family:var(--font-display);font-size:.62rem;
+  font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(255,255,255,.28);display:block;margin-bottom:1.25rem;
+}
+.kontakt-headline{
+  font-family:var(--font-display);
+  font-size:clamp(1.75rem,4vw,2.5rem);
+  font-weight:700;color:var(--white);letter-spacing:-.02em;
+  line-height:1.1;margin-bottom:2.25rem;
+}
+.k-detail{margin-bottom:1.5rem}
+.k-detail-label{
+  font-family:var(--font-display);font-size:.62rem;
+  font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.28);display:block;margin-bottom:.3rem;
+}
+.k-detail-val{font-size:1rem;color:var(--white)}
+.k-detail-val a{color:var(--white);text-decoration:none}
+.k-detail-val a:hover{text-decoration:underline;text-underline-offset:3px}
+.founders{list-style:none}
+.founders li{padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.founders li:last-child{border-bottom:none}
+.founder-name{
+  font-family:var(--font-display);font-size:1rem;
+  font-weight:700;color:var(--white);letter-spacing:.02em;margin-bottom:.15rem;
+}
+.founder-role{font-size:.8rem;color:rgba(255,255,255,.38)}
+.kontakt-tagline{
+  font-size:.82rem;color:rgba(255,255,255,.28);
+  margin-top:2rem;max-width:34ch;line-height:1.65;
+}
+
+/* === FOOTER === */
+footer{
+  background:var(--navy);
+  border-top:1px solid rgba(255,255,255,.05);
+  padding:1.5rem 0;
+}
+.footer-inner{
+  max-width:1100px;margin:0 auto;padding:0 2rem;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:.75rem;
+}
+.footer-reg{
+  font-family:var(--font-display);font-size:.68rem;
+  font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.22);
+}
+.footer-site{
+  font-size:.72rem;color:rgba(255,255,255,.22);
+  text-decoration:none;transition:color .15s;
+}
+.footer-site:hover{color:rgba(255,255,255,.45);text-decoration:none}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="mn-nav" aria-label="Hauptnavigation">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="MegaNet Startseite">
+      <!-- Nav seal: compact MN monogram -->
+      <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
+        <circle cx="15" cy="15" r="13.5" fill="none" stroke="#8b2020" stroke-width="1"/>
+        <circle cx="15" cy="15" r="11" fill="none" stroke="#8b2020" stroke-width="0.35" stroke-dasharray="2,3"/>
+        <text x="15" y="18.5" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#8b2020" letter-spacing="-0.5">MN</text>
+      </svg>
+      <span class="nav-logo-name">MegaNet</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#dental">Dental-IT</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="tel:+494073611321" class="nav-tel">+49 40 736 113 21</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-hl">
+  <div class="container hero-inner">
+    <div>
+      <h1 class="hero-headline" id="hero-hl">
+        Ihr zuverlässiger<br>
+        Navigator durch<br>
+        die digitale<br>
+        Infrastruktur.
+      </h1>
+      <p class="hero-sub">IT-Systemhaus in Hamburg. Vollständige IT-Betreuung, ein fester Ansprechpartner — für Mittelstand und Zahnarztpraxen in Norddeutschland. Seit 1992.</p>
+      <div class="hero-actions">
+        <a href="#kontakt" class="btn-primary">Beratung anfragen</a>
+        <a href="#leistungen" class="btn-text">Alle Leistungen</a>
+      </div>
+      <div class="hero-proof" role="list">
+        <div class="proof-item" role="listitem">
+          <span class="proof-num">30<sup style="font-size:.9rem;vertical-align:super">+</sup></span>
+          <span class="proof-label">Jahre am Markt</span>
+        </div>
+        <div class="proof-item" role="listitem">
+          <span class="proof-num">~10</span>
+          <span class="proof-label">Mitarbeiter</span>
+        </div>
+        <div class="proof-item" role="listitem">
+          <span class="proof-num">15<sup style="font-size:.9rem;vertical-align:super">+</sup></span>
+          <span class="proof-label">Jahre Dental-IT</span>
+        </div>
+        <div class="proof-item" role="listitem">
+          <span class="proof-num" style="font-size:1.1rem;padding-top:.2rem">3CX</span>
+          <span class="proof-label">Zertifizierter Partner</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MN Notarial Seal -->
+    <div class="hero-seal-wrap" aria-hidden="true">
+      <svg width="210" height="210" viewBox="0 0 210 210">
+        <defs>
+          <!-- Full circle path starting at top, going clockwise -->
+          <path id="seal-circle" d="M 105,28 a 77,77 0 0,1 0,154 a 77,77 0 0,1 0,-154"/>
+        </defs>
+        <!-- Rings -->
+        <circle cx="105" cy="105" r="100" fill="none" stroke="#8b2020" stroke-width="1.5"/>
+        <circle cx="105" cy="105" r="93" fill="none" stroke="#8b2020" stroke-width="0.4" stroke-dasharray="3,4"/>
+        <circle cx="105" cy="105" r="77" fill="none" stroke="#8b2020" stroke-width="0.5"/>
+        <!-- Circular text — top half readable -->
+        <text font-family="'Barlow Condensed',sans-serif" font-size="9.5" font-weight="600" fill="#8b2020" letter-spacing="3">
+          <textPath href="#seal-circle" startOffset="4%">MEGANET COMPUTERSYSTEME · HAMBURG · SEIT 1992 ·</textPath>
+        </text>
+        <!-- Center MN -->
+        <text x="105" y="98" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="58" font-weight="700" fill="#8b2020" letter-spacing="-2">MN</text>
+        <!-- Horizontal rules -->
+        <line x1="48" y1="108" x2="162" y2="108" stroke="#8b2020" stroke-width="1"/>
+        <line x1="62" y1="113" x2="148" y2="113" stroke="#8b2020" stroke-width="0.5"/>
+        <!-- Subtext -->
+        <text x="105" y="132" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="8" font-weight="600" fill="#8b2020" letter-spacing="4">IT-SYSTEMHAUS</text>
+        <text x="105" y="148" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="7" font-weight="500" fill="#8b2020" letter-spacing="2" opacity="0.6">HAMBURG · GEGRÜNDET 1992</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- LEISTUNGEN -->
+<section class="leistungen" id="leistungen" aria-labelledby="leistungen-hl">
+  <div class="container">
+    <h2 class="section-title" id="leistungen-hl">Leistungen</h2>
+    <div class="leistungen-grid">
+
+      <div class="svc">
+        <span class="svc-code">NW</span>
+        <div>
+          <p class="svc-name">Netzwerk &amp; Server</p>
+          <p class="svc-desc">Planung, Aufbau und Betrieb Ihrer gesamten IT-Infrastruktur. Server, Workstations, Netzwerke — vollständig und verantwortlich betreut.</p>
+        </div>
+      </div>
+
+      <div class="svc">
+        <span class="svc-code">BK</span>
+        <div>
+          <p class="svc-name">Backup &amp; Recovery</p>
+          <p class="svc-desc">Datensicherung, Wiederherstellung und Notfallkonzepte. Kein Datenverlust — auch im Ernstfall.</p>
+        </div>
+      </div>
+
+      <div class="svc">
+        <span class="svc-code">VM</span>
+        <div>
+          <p class="svc-name">Virtualisierung &amp; Remote</p>
+          <p class="svc-desc">Server-Virtualisierung und Remote-Desktop-Lösungen. Flexibles, ortsunabhängiges Arbeiten ohne eigenen IT-Betrieb.</p>
+        </div>
+      </div>
+
+      <div class="svc">
+        <span class="svc-code">SI</span>
+        <div>
+          <p class="svc-name">Sicherheit &amp; Firewall</p>
+          <p class="svc-desc">Virenschutz, Firewalls, VPN-Zugänge. Umfassender Schutz Ihrer Systeme und Daten.</p>
+        </div>
+      </div>
+
+      <div class="svc">
+        <span class="svc-code">TP</span>
+        <div>
+          <p class="svc-name">VoIP-Telefonie (3CX)</p>
+          <p class="svc-desc">IP-Telefonanlagen auf 3CX-Basis. Zertifizierter Partner — von der Planung über die Installation bis zum laufenden Betrieb.</p>
+        </div>
+      </div>
+
+      <div class="svc">
+        <span class="svc-code">DS</span>
+        <div>
+          <p class="svc-name">Datenschutz &amp; DSGVO</p>
+          <p class="svc-desc">DSGVO-Beratung und externer Datenschutzbeauftragter. Rechtssicherheit ohne eigene Compliance-Ressourcen.</p>
+        </div>
+      </div>
+
+      <div class="svc" style="border-bottom:none">
+        <span class="svc-code">WB</span>
+        <div>
+          <p class="svc-name">Web &amp; Hosting</p>
+          <p class="svc-desc">Webdesign, Hosting und individuelle Webanwendungen. Alles aus einer Hand, ein Ansprechpartner.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- KENNDATEN -->
+<section class="kenndaten">
+  <div class="container">
+    <h2 class="section-title">Über MegaNet</h2>
+    <div class="kenndaten-grid">
+      <div class="kd-item">
+        <span class="kd-label">Marktpräsenz</span>
+        <span class="kd-val">30<sup>+</sup></span>
+        <span class="kd-unit">Jahre · seit 1992</span>
+      </div>
+      <div class="kd-item">
+        <span class="kd-label">Team</span>
+        <span class="kd-val">~10</span>
+        <span class="kd-unit">Feste Ansprechpartner</span>
+      </div>
+      <div class="kd-item">
+        <span class="kd-label">Spezialisierung</span>
+        <span class="kd-val">15<sup>+</sup></span>
+        <span class="kd-unit">Jahre Dental-IT</span>
+      </div>
+    </div>
+    <p class="about-text">
+      Gegründet 1992 von Andreas Kögel und Dipl.-Ing. Torsten Schiffl. MegaNet ist seit 2003 in Hamburg nahe dem Berliner Tor ansässig und betreut mittelständische Unternehmen sowie Zahnarztpraxen in Hamburg und ganz Norddeutschland. Persönliche Betreuung, ein fester Ansprechpartner je Kunde, vollständige IT-Verantwortung als externer Partner — das ist unser Heimathafen-Versprechen seit über 30 Jahren.
+    </p>
+  </div>
+</section>
+
+<!-- DENTAL IT -->
+<section class="dental-it" id="dental" aria-labelledby="dental-hl">
+  <div class="container">
+    <div class="dental-inner">
+      <div>
+        <h2 class="dental-title" id="dental-hl">Dental-IT.<br>15 Jahre Erfahrung.</h2>
+        <p class="dental-sub">Vollständige IT-Betreuung für Zahnarztpraxen, Kieferorthopäden und MKG-Chirurgen — von der Praxissoftware bis zur Röntgenanlage.</p>
+        <ul class="dental-list">
+          <li>Praxisverwaltungssoftware</li>
+          <li>Digitales Röntgen &amp; Bildgebung</li>
+          <li>Intraorale Kameras</li>
+          <li>TK-Anlage &amp; Voicemail</li>
+          <li>Netzwerk &amp; Server</li>
+          <li>DSGVO-Beratung Praxis</li>
+          <li>Remote-Support</li>
+          <li>Vorort-Service Hamburg</li>
+        </ul>
+        <blockquote class="dental-ref">
+          <p>„Dres. Konter &amp; Kanehl — Mund-, Kiefer- und Gesichtschirurgie Hamburg — vertraut seit Jahren auf MegaNet als zuverlässigen IT-Partner."</p>
+          <cite>Referenzkunde · Mund-, Kiefer- und Gesichtschirurgie</cite>
+        </blockquote>
+      </div>
+
+      <!-- ONE AUTHORED MOMENT: stamp-in on scroll -->
+      <div class="dental-seal-wrap" aria-hidden="true">
+        <svg class="dental-seal" width="186" height="186" viewBox="0 0 186 186">
+          <defs>
+            <path id="dental-circle" d="M 93,20 a 73,73 0 0,1 0,146 a 73,73 0 0,1 0,-146"/>
+          </defs>
+          <circle cx="93" cy="93" r="88" fill="none" stroke="#0d5c3a" stroke-width="1.5"/>
+          <circle cx="93" cy="93" r="81" fill="none" stroke="#0d5c3a" stroke-width="0.4" stroke-dasharray="2,5"/>
+          <circle cx="93" cy="93" r="73" fill="none" stroke="#0d5c3a" stroke-width="0.5"/>
+          <text font-family="'Barlow Condensed',sans-serif" font-size="9" font-weight="600" fill="#0d5c3a" letter-spacing="3">
+            <textPath href="#dental-circle" startOffset="3%">DENTAL-IT · SPEZIALISIERUNG · HAMBURG · SEIT 2008 ·</textPath>
+          </text>
+          <!-- Dental cross icon -->
+          <rect x="84" y="38" width="18" height="18" rx="1.5" fill="none" stroke="#0d5c3a" stroke-width="1.25"/>
+          <line x1="93" y1="41" x2="93" y2="53" stroke="#0d5c3a" stroke-width="1.75"/>
+          <line x1="87" y1="47" x2="99" y2="47" stroke="#0d5c3a" stroke-width="1.75"/>
+          <!-- Center text -->
+          <text x="93" y="84" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="13" font-weight="700" fill="#0d5c3a" letter-spacing="2.5">DENTAL</text>
+          <line x1="36" y1="90" x2="150" y2="90" stroke="#0d5c3a" stroke-width=".75"/>
+          <line x1="48" y1="94.5" x2="138" y2="94.5" stroke="#0d5c3a" stroke-width=".4"/>
+          <text x="93" y="110" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="13" font-weight="700" fill="#0d5c3a" letter-spacing="2.5">ZERTIFIKAT</text>
+          <text x="93" y="128" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="8" font-weight="500" fill="#0d5c3a" letter-spacing="2" opacity="0.6">MEGANET HAMBURG</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHIE & REFERENZ -->
+<section class="philosophie">
+  <div class="container">
+    <div class="phil-inner">
+      <div>
+        <span class="phil-label">Unser Anspruch</span>
+        <ul class="phil-values">
+          <li>
+            <span class="phil-vname">Schnell</span>
+            <span class="phil-vdesc">Reaktion ohne Wartezeiten</span>
+          </li>
+          <li>
+            <span class="phil-vname">Pünktlich</span>
+            <span class="phil-vdesc">Termine werden gehalten</span>
+          </li>
+          <li>
+            <span class="phil-vname">Zuverlässig</span>
+            <span class="phil-vdesc">Ein fester Ansprechpartner</span>
+          </li>
+          <li>
+            <span class="phil-vname">Umfassend</span>
+            <span class="phil-vdesc">Vollständige IT aus einer Hand</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <span class="phil-label">Mission</span>
+        <blockquote class="ref-block">
+          <p class="ref-text">„Als Hamburger IT-Systemhaus sind wir seit über 30 Jahren Ihr fester Anker in der digitalen Infrastruktur. Als sicherer Lotse navigieren wir Ihr Unternehmen durch jede technische Herausforderung — verlässlich, persönlich, vollständig."</p>
+          <span class="ref-source">MegaNet Computersysteme GmbH</span>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STELLENANZEIGE -->
+<section class="stellenanzeige">
+  <div class="container">
+    <div class="stellen-card">
+      <h2 class="stellen-title">IT Service Techniker:in</h2>
+      <p class="stellen-meta">Vollzeit · Hamburg · ab sofort · m/w/d</p>
+      <p class="stellen-text">
+        Wir suchen Verstärkung für unser Team. Als IT Service Techniker:in betreuen Sie unsere Kunden vor Ort und remote — Schwerpunkt Netzwerkinfrastruktur, Windows-Umgebungen, gerne mit Erfahrung in Dental-IT. Erfahrung und Zuverlässigkeit zählen mehr als Zertifikate.
+      </p>
+      <a href="mailto:info@meganet-online.de?subject=Bewerbung%20IT%20Service%20Techniker" class="stellen-cta">Jetzt bewerben</a>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="kontakt" id="kontakt" aria-labelledby="kontakt-hl">
+  <div class="container">
+    <div class="kontakt-inner">
+      <div>
+        <h2 class="kontakt-headline" id="kontakt-hl">Sprechen wir<br>über Ihre IT.</h2>
+        <div class="k-detail">
+          <span class="k-detail-label">Telefon</span>
+          <p class="k-detail-val"><a href="tel:+494073611321">+49 (40) 736 113 21</a></p>
+        </div>
+        <div class="k-detail">
+          <span class="k-detail-label">E-Mail</span>
+          <p class="k-detail-val"><a href="mailto:info@meganet-online.de">info@meganet-online.de</a></p>
+        </div>
+        <div class="k-detail">
+          <span class="k-detail-label">Anschrift</span>
+          <p class="k-detail-val" style="color:rgba(255,255,255,.65)">MegaNet Computersysteme GmbH<br>Hamburg · Berliner Tor (seit 2003)</p>
+        </div>
+        <div class="k-detail">
+          <span class="k-detail-label">Erreichbarkeit</span>
+          <p class="k-detail-val" style="color:rgba(255,255,255,.5)">Mo–Fr, 08:00–18:00 Uhr</p>
+        </div>
+      </div>
+
+      <div>
+        <span class="k-label">Ihre Ansprechpartner</span>
+        <ul class="founders">
+          <li>
+            <p class="founder-name">Andreas Kögel</p>
+            <p class="founder-role">Geschäftsführung</p>
+          </li>
+          <li>
+            <p class="founder-name">Dipl.-Ing. Torsten Schiffl</p>
+            <p class="founder-role">Geschäftsführung · Technik</p>
+          </li>
+        </ul>
+        <p class="kontakt-tagline">Heimathafen Hamburg seit 1992. Wir kennen Ihren Betrieb — und halten Ihre IT am Laufen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p class="footer-reg">MegaNet Computersysteme GmbH &middot; Amtsgericht Hamburg &middot; Gegründet 1992</p>
+    <a href="https://www.meganet-online.de" class="footer-site" rel="noopener noreferrer" target="_blank">meganet-online.de</a>
+  </div>
+</footer>
+
+<script>
+  /* Dental seal: stamp on scroll intersection */
+  const seal = document.querySelector('.dental-seal');
+  if (seal) {
+    if ('IntersectionObserver' in window) {
+      const obs = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          seal.classList.add('is-stamped');
+          obs.disconnect();
+        }
+      }, { threshold: 0.3 });
+      obs.observe(seal);
+    } else {
+      seal.classList.add('is-stamped');
+    }
+  }
+</script>
+
+</body>
+</html>
