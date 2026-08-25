@@ -14,7 +14,7 @@
 :root{
   --ink:#161b29;
   --ink-2:#525d73;
-  --ink-3:#8a93a4;
+  --ink-3:#575f73;
   --navy:#0c1322;
   --bundesblau:#003580;
   --bundesblau-h:#004ab0;
@@ -38,8 +38,23 @@ body{font-family:var(--font-body);font-size:1rem;line-height:1.6;background:var(
 ::-webkit-scrollbar-track{background:var(--parchment-warm)}
 ::-webkit-scrollbar-thumb{background:var(--bundesblau);border-radius:3px}
 ::-webkit-scrollbar-thumb:hover{background:var(--navy)}
+/* Skip link */
+.skip-link{
+  position:absolute;top:-100%;left:1rem;z-index:9999;
+  background:var(--bundesblau);color:var(--white);
+  padding:.5rem 1.25rem;font-family:var(--font-display);
+  font-size:.875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;border:2px solid var(--white);
+}
+.skip-link:focus{top:1rem}
+
 ::selection{background:var(--bundesblau);color:var(--white)}
 :focus-visible{outline:2px solid var(--bundesblau);outline-offset:3px}
+/* White focus ring on dark backgrounds */
+.mn-nav :focus-visible,
+.hero :focus-visible,
+.kontakt :focus-visible,
+footer :focus-visible{outline-color:#fff}
 
 a{color:var(--bundesblau);text-decoration:none}
 a:hover{text-decoration:underline;text-underline-offset:3px}
@@ -105,7 +120,7 @@ nav.mn-nav{
 }
 .hero-sub{
   font-size:1.05rem;line-height:1.65;
-  color:rgba(255,255,255,.6);max-width:52ch;margin-bottom:2.5rem;
+  color:rgba(255,255,255,.85);max-width:52ch;margin-bottom:2.5rem;
 }
 .hero-actions{display:flex;gap:1.25rem;align-items:center;flex-wrap:wrap}
 .btn-primary{
@@ -119,7 +134,7 @@ nav.mn-nav{
 .btn-text{
   font-family:var(--font-display);font-size:.85rem;
   font-weight:600;letter-spacing:.1em;text-transform:uppercase;
-  color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;
+  color:rgba(255,255,255,.65);text-decoration:none;transition:color .15s;
 }
 .btn-text:hover{color:var(--white);text-decoration:none}
 .hero-proof{
@@ -135,7 +150,7 @@ nav.mn-nav{
 .proof-label{
   font-family:var(--font-display);font-size:.72rem;
   font-weight:600;letter-spacing:.12em;text-transform:uppercase;
-  color:rgba(255,255,255,.38);
+  color:rgba(255,255,255,.60);
 }
 @media(max-width:768px){
   .hero-inner{grid-template-columns:1fr}
@@ -230,7 +245,7 @@ section{padding:5rem 0}
   letter-spacing:-.02em;margin-bottom:1rem;line-height:1.1;
 }
 .dental-sub{
-  font-size:1rem;color:var(--dental);opacity:.75;
+  font-size:1rem;color:rgba(13,92,58,.85);
   margin-bottom:2rem;max-width:55ch;
 }
 .dental-list{
@@ -259,7 +274,7 @@ section{padding:5rem 0}
 .dental-ref p{font-style:italic;line-height:1.65}
 .dental-ref cite{
   display:block;font-style:normal;font-weight:600;
-  font-size:.78rem;margin-top:.5rem;opacity:.65;
+  font-size:.78rem;margin-top:.5rem;
 }
 
 /* THE ONE AUTHORED MOMENT */
@@ -349,7 +364,7 @@ section{padding:5rem 0}
 .k-label{
   font-family:var(--font-display);font-size:.62rem;
   font-weight:700;letter-spacing:.22em;text-transform:uppercase;
-  color:rgba(255,255,255,.28);display:block;margin-bottom:1.25rem;
+  color:rgba(255,255,255,.55);display:block;margin-bottom:1.25rem;
 }
 .kontakt-headline{
   font-family:var(--font-display);
@@ -361,7 +376,7 @@ section{padding:5rem 0}
 .k-detail-label{
   font-family:var(--font-display);font-size:.62rem;
   font-weight:700;letter-spacing:.18em;text-transform:uppercase;
-  color:rgba(255,255,255,.28);display:block;margin-bottom:.3rem;
+  color:rgba(255,255,255,.55);display:block;margin-bottom:.3rem;
 }
 .k-detail-val{font-size:1rem;color:var(--white)}
 .k-detail-val a{color:var(--white);text-decoration:none}
@@ -373,9 +388,9 @@ section{padding:5rem 0}
   font-family:var(--font-display);font-size:1rem;
   font-weight:700;color:var(--white);letter-spacing:.02em;margin-bottom:.15rem;
 }
-.founder-role{font-size:.8rem;color:rgba(255,255,255,.38)}
+.founder-role{font-size:.8rem;color:rgba(255,255,255,.80)}
 .kontakt-tagline{
-  font-size:.82rem;color:rgba(255,255,255,.28);
+  font-size:.82rem;color:rgba(255,255,255,.85);
   margin-top:2rem;max-width:34ch;line-height:1.65;
 }
 
@@ -393,16 +408,18 @@ footer{
 .footer-reg{
   font-family:var(--font-display);font-size:.68rem;
   font-weight:600;letter-spacing:.12em;text-transform:uppercase;
-  color:rgba(255,255,255,.22);
+  color:rgba(255,255,255,.55);
 }
 .footer-site{
-  font-size:.72rem;color:rgba(255,255,255,.22);
+  font-size:.72rem;color:rgba(255,255,255,.55);
   text-decoration:none;transition:color .15s;
 }
-.footer-site:hover{color:rgba(255,255,255,.45);text-decoration:none}
+.footer-site:hover{color:rgba(255,255,255,.80);text-decoration:none}
 </style>
 </head>
 <body>
+
+<a href="#main-content" class="skip-link">Zum Inhalt springen</a>
 
 <!-- NAV -->
 <nav class="mn-nav" aria-label="Hauptnavigation">
@@ -424,6 +441,8 @@ footer{
     </ul>
   </div>
 </nav>
+
+<main id="main-content">
 
 <!-- HERO -->
 <section class="hero" aria-labelledby="hero-hl">
@@ -555,9 +574,9 @@ footer{
 </section>
 
 <!-- KENNDATEN -->
-<section class="kenndaten">
+<section class="kenndaten" aria-labelledby="kenndaten-hl">
   <div class="container">
-    <h2 class="section-title">Über MegaNet</h2>
+    <h2 class="section-title" id="kenndaten-hl">Über MegaNet</h2>
     <div class="kenndaten-grid">
       <div class="kd-item">
         <span class="kd-label">Marktpräsenz</span>
@@ -633,11 +652,11 @@ footer{
 </section>
 
 <!-- PHILOSOPHIE & REFERENZ -->
-<section class="philosophie">
+<section class="philosophie" aria-labelledby="philosophie-hl">
   <div class="container">
     <div class="phil-inner">
       <div>
-        <span class="phil-label">Unser Anspruch</span>
+        <span class="phil-label" id="philosophie-hl">Unser Anspruch</span>
         <ul class="phil-values">
           <li>
             <span class="phil-vname">Schnell</span>
@@ -662,7 +681,7 @@ footer{
         <span class="phil-label">Mission</span>
         <blockquote class="ref-block">
           <p class="ref-text">„Als Hamburger IT-Systemhaus sind wir seit über 30 Jahren Ihr fester Anker in der digitalen Infrastruktur. Als sicherer Lotse navigieren wir Ihr Unternehmen durch jede technische Herausforderung — verlässlich, persönlich, vollständig."</p>
-          <span class="ref-source">MegaNet Computersysteme GmbH</span>
+          <cite class="ref-source">MegaNet Computersysteme GmbH</cite>
         </blockquote>
       </div>
     </div>
@@ -670,10 +689,10 @@ footer{
 </section>
 
 <!-- STELLENANZEIGE -->
-<section class="stellenanzeige">
+<section class="stellenanzeige" aria-labelledby="stellen-hl">
   <div class="container">
     <div class="stellen-card">
-      <h2 class="stellen-title">IT Service Techniker:in</h2>
+      <h2 class="stellen-title" id="stellen-hl">IT Service Techniker:in</h2>
       <p class="stellen-meta">Vollzeit · Hamburg · ab sofort · m/w/d</p>
       <p class="stellen-text">
         Wir suchen Verstärkung für unser Team. Als IT Service Techniker:in betreuen Sie unsere Kunden vor Ort und remote — Schwerpunkt Netzwerkinfrastruktur, Windows-Umgebungen, gerne mit Erfahrung in Dental-IT. Erfahrung und Zuverlässigkeit zählen mehr als Zertifikate.
@@ -724,6 +743,8 @@ footer{
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer>
